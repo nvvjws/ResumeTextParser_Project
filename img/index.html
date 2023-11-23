@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Text Parser</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <section class="header-info">
+        <div class="header-container">
+            <div class="header-title">
+                <h1>RESUME TEXT PARSER</h1>
+            </div>
+            <div class="header-content">
+                <h2>Scan vital keywords for certain job requirements</h2>
+            </div>
+            <div class="head-btn">
+                <a href="import.html" class="start" id="getStartedButton">Get Started</a>
+                <a href="member.html" class="member" id="TeamMemberButton">Team Members</a>
+            </div>
+            <div class="header-image">
+                <img src="img/docimg.svg" alt="">
+            </div>
+        </div>
+
+        <img src="/pic/homeicon.png" class="feature-img">
+    </section>
+
+    <style>
+        .feature-img{
+            width: 891px;
+            height: 1080px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const getStartedButton = document.getElementById("getStartedButton");
+            const teamMemberButton = document.getElementById("TeamMemberButton");
+
+            const hoverBackgroundColor1 = "#9650B0";
+            const hoverBackgroundColor2 = "#202020";
+
+            const defaultBackgroundColor1 = getComputedStyle(getStartedButton).backgroundColor;
+            const defaultBackgroundColor2 = getComputedStyle(teamMemberButton).backgroundColor;
+
+            getStartedButton.addEventListener("mouseenter", function() {
+                getStartedButton.style.backgroundColor = hoverBackgroundColor1;
+            });
+            getStartedButton.addEventListener("mouseleave", function() {
+                getStartedButton.style.backgroundColor = defaultBackgroundColor1;
+            });
+
+            teamMemberButton.addEventListener("mouseenter", function() {
+                teamMemberButton.style.backgroundColor = hoverBackgroundColor2;
+            });
+            teamMemberButton.addEventListener("mouseleave", function() {
+                teamMemberButton.style.backgroundColor = defaultBackgroundColor2;
+            });
+        });
+    </script>
+</body>
+</html>
+
+</body>
+</html>
+

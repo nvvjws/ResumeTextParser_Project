@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analysis Result</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: linear-gradient(-225deg, #290B3D 0%, #19173E 52%, #0A223C 100%);
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        /*.blue-box {
+            background-color: #9650B0;
+            color: #fff;
+            padding: 10px 40px;
+            display: inline-block;
+            border-radius: 10px;
+        }*/
+
+        .blue-box{
+            font-size: 48px;
+            color: white;
+            margin-top: 20px;
+        }
+
+        table {
+            height: 100px;
+            width: 700px;
+            margin: 10px auto;
+            border-collapse: collapse;
+            background-color: #f2f2f2;
+            border: 1px inset black; 
+        }
+        
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #8940C2;
+            color: #fff;
+            position: sticky;
+            top: 0;
+        }
+
+        tr:nth-child(even) {
+            width: 156px;
+            background-color: #f2f2f2;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 1.0rem 2.0rem;
+            background-color: #24AE6C;
+            color: #000000;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .sorted-heading1{
+            color: white;
+        }
+        .sorted-heading2{
+            color: white;
+        }
+        .sorted-heading3{
+            color: white;
+        }
+
+        .centered-text2{
+            font-size: 20px;
+            margin-top: 1px;
+            color: white;
+        }
+        .centered-text3{
+            font-size: 20px;
+            margin-top: 1px;
+            color: white;
+        }
+
+        .backbutton{
+            font-size: 18px;
+            color: white;
+            background: #24AE6C;
+        }
+    </style>
+</head>
+<body>
+    <h1><div class="blue-box">📋 APPLICANT DATA 📋</div></h1>
+
+    <h1 class="sorted-heading1">Sorted by date</h1>
+    <div class="table-container" id="scrollable-table">
+        <table class="table" id="scroll-table">
+            <tr>
+                <th>Applicant File Name</th>
+                <th>Matched Keywords</th>
+                <th>Scores</th>
+                <th>Date/Times</th>
+            </tr>
+            {% for appdata in applicant_data %}
+            <tr>
+                <td>{{ appdata.filename }}</td>
+                <td>{{ appdata.Matched_skills }}</td>
+                <td>{{ appdata.score }}</td>
+                <td>{{ appdata.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+    <!-- Second Table: Sorted by Score -->
+    <h1 class="sorted-heading2">Sorted by Score</h1>
+    <h2 class="centered-text2" style="text-align: center;">(Highest to lowest)</h2>
+    <div class="table-container" id="scrollable-table">
+        <table class="table" id="scroll-table">
+            <tr>
+                <th>Applicant File Name</th>
+                <th>Matched Keywords</th>
+                <th>Scores</th>
+                <th>Date/Times</th>
+            </tr>
+            {% for sorted_appdata in sorted_data %}
+            <tr>
+                <td>{{ sorted_appdata.filename }}</td>
+                <td>{{ sorted_appdata.Matched_skills }}</td>
+                <td>{{ sorted_appdata.score }}</td>
+                <td>{{ sorted_appdata.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <!-- Third Table: Sorted by Score Ranges -->
+    <h1 class="sorted-heading3">Sorted by Score Ranges</h1>
+    <h2 class="centered-text3" style="text-align: center;">(Highest to lowest)</h2>
+    <div class="table-container" id="scrollable-table">
+        <table class="table" id="scroll-table">
+        <tr>
+            <th>Score Range</th>
+            <th>Applicant File Names</th>
+            <th>Frequency</th>
+        </tr>
+        {% for range, filenames in score_ranges.items() %}
+        <tr>
+            <td>{{ range }}</td>
+            <td>{{ ", ".join(filenames[0])}}</td>
+            <td>{{filenames[1]}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    </div>
+
+    <div style="text-align: center;">
+        <button class="backbutton" id="backbutton" onclick="window.open('http://127.0.0.1:5500/img/import.html', '_blank')">Back to import page</button>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const backbutton = document.getElementById("backbutton");
+            const hoverBackgroundColor = "#0A8B4D";
+            const defaultBackgroundColor = getComputedStyle(backbutton).backgroundColor;
+
+            backbutton.addEventListener("mouseenter", function() {
+                backbutton.style.backgroundColor = hoverBackgroundColor;
+            });
+            backbutton.addEventListener("mouseleave", function() {
+                backbutton.style.backgroundColor = defaultBackgroundColor;
+            });
+        });
+    </script>
+</body>
+</html>

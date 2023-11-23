@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+.team{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(-225deg, #290B3D 0%, #19173E 52%, #0A223C 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.teammem{
+   width: 100%;
+   max-width: 1350px;
+   margin: 0 auto;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(150px,auto));
+   gap: 2rem;
+   text-align: center;
+   margin-top: 4rem;
+}
+.teammem img{
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.member_header h1{
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+}
+.name {
+    padding: 16px;
+    background: #947BA8;
+    border-radius: 15px;
+    transition: all .38s ease;
+}
+.name h2{
+    font-size: 23px;
+    font-weight: 600;
+    color: #290B3D;
+    margin-bottom: 8px;
+}
+.name h3{
+    font-size: 18px;
+    font-weight: 300;
+    color: #290B3D;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+.name:hover{
+    transform: translateY(-20px);
+    cursor: pointer;
+}
+
+@media(max-width: 1240px){
+    .team{
+        width: 100%;
+        height: auto;
+        padding: 90px 2%;
+    }
+    .member_header h1{
+        font-size: 3.2rem;
+    }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload PDF</title>
+    <link rel="stylesheet" href="/css/importstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>Upload your PDF Here</header>
+        <header>👇🏻</header>
+        <form id="upload-form" action="http://127.0.0.1:8000/upload" method="post" enctype="multipart/form-data">
+            <label class="file-label">
+                <input class="file-input" type="file" name="file">
+                <button type="submit">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </button>
+                <p>ONLY PDF FILE! 😾</p>
+            </label>
+        </form>
+        <section class="progress-area"></section>
+        <section class="upload-area"></section>
+    </div>
+</body>
+</html>
